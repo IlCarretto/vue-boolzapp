@@ -19,7 +19,87 @@
 <body>
 
     <div id="app">
-        
+        <div class="webapp-container">
+            <div class="whatsapp-container">
+                <!-- SIDEBAR SECTION -->
+                <div class="sidebar-contacts">
+                    <div class="header-sidebar">
+                        <div class="sidebar-profile">
+                            <div class="sidebar-profile-pic">
+                                <img src="img/avatar_io.jpg" alt="">
+                            </div>
+                            <span id="profile-name">Sofia</span>
+                        </div>
+                        <div class="sidebar-icons">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="notifications">
+                        <div class="bell-circle">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <ul class="notif-list">
+                            <li>
+                                <h4>Ricevi notifiche di nuovi messaggi</h4>
+                            </li>
+                            <li>
+                                <span>Attiva notifiche desktop</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-contacts">
+                        <div class="search-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <input placeholder="Cerca o inizia una nuova chat" type=text class="search-chat">
+                        </input>
+                    </div>
+                    <!-- CONTACT SECTION -->
+                    <div class="contact-section">
+                        <div v-for="(contact, index) in contacts"       class="single-contact">
+                            <div class="circle-profile">
+                                <img :src=" 'img/avatar' + contact.avatar  + '.jpg' ">
+                            </div>
+                            <div class="name-and-msg">
+                                <h4 class="profile-name">
+                                    {{contact.name}}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /SIDEBAR SECTION -->
+
+                <!-- MAIN SECTION -->
+                <div class="main-section">
+                    <div class="header-main">
+                        <div class="addressee-profile">
+                            <div class="circle-profile">
+                                <img src="img/avatar_1.jpg">
+                            </div>
+                            <div class="addressee-info">
+                                <span>Michele</span>
+                                <span id="last-online">Ultimo accesso alle 12:00</span>
+                            </div>
+                        </div>
+                        <div class="main-icons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="chat-section">
+
+                    </div>
+                    <div class="message-section">
+                        
+                    </div>
+                </div>
+                <!-- /MAIN SECTION -->
+            </div>
+        </div>
     </div>
 
     <script src="js/script.js"></script>

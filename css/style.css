@@ -13,3 +13,237 @@ img {
 html {
     font-family: 'Lato', sans-serif;
 }
+
+body {
+    background-image: url(../img/background.webp);
+    background-position: top;
+}
+
+.webapp-container {
+    width: 100%;
+    height: 100vh;
+}
+
+.whatsapp-container {
+    width: 70%;
+    height: 95%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    /* DEBUG */
+    background-color: red;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* VARIABLES */
+:root {
+    /* Sections */
+    --sidebar-width: 500px;
+
+    /* colors */
+    --main-gray: #eaeaea;
+    --icons-light-gray: #b1b1b1;
+    --icons-dark-gray: #6b7376;
+    --addresser-msg-color: #d5f9ba;
+    --hover-chat-gray: #e9ebeb;
+    --notif: #8edafc;
+}
+/* /COMMON */
+
+/* SIDEBAR SECTION */
+.sidebar-contacts {
+    width: var(--sidebar-width);
+    height: 100%;
+}
+
+/* HEADER SIDEBAR */
+.header-sidebar {
+    width: 100%;
+    height: 70px;
+    background-color: var(--main-gray);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-right: 1px solid lightgrey;
+}
+
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+}
+
+#profile-name {
+    margin-left: .5rem;
+}
+
+.sidebar-profile-pic {
+    width: 50px;
+    height: 50px;
+    margin-left: 1rem;
+}
+
+.sidebar-profile-pic img {
+   border-radius: 50%;
+}
+
+.sidebar-icons i {
+    color: var(--icons-light-gray);
+    font-size: 1.4rem;
+    margin-right: .8rem;
+    cursor: pointer;
+}
+/* /HEADER SIDEBAR */
+
+/* Notifications Section */
+.notifications {
+    width: 100%;
+    height: 80px;
+    background-color: var(--notif);
+    display: flex;
+    align-items: center;
+}
+
+.bell-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--notif);
+    background-color: white;
+}
+
+.notifications > * {
+    margin-left: .8rem;
+}
+
+.notif-list li span {
+    color: var(--icons-dark-gray);
+    text-decoration: underline;
+    font-size: .8rem;
+}
+/* /Notifications Section */
+
+/* Search-Contacts */
+.search-contacts {
+    width: 100%;
+    height: 50px;
+    background-color: var(--main-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-icon,
+.search-chat {
+    height: 30px;
+    border: 1px solid lightgrey;
+    background-color: white;
+    color: var(--icons-dark-gray);
+}
+
+.search-icon {
+    width: 20%;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-chat {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    padding-left: .5rem;
+}
+/* /Search-Contacts */
+
+/* Contact Section */
+.contact-section {
+    background-color: white;
+    width: 100%;
+    height: calc(100% - 70px - 50px - 80px);
+    overflow-y: scroll;
+}
+
+.single-contact {
+    padding: .8rem;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+}
+
+.circle-profile {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: var(--hover-chat-gray);
+}
+
+.circle-profile img {
+    border-radius: 50%;
+}
+
+.name-and-msg {
+    padding: .5rem;
+}
+
+/* /Contact Section */
+/* /SIDEBAR SECTION */
+
+/* MAIN SECTION */
+.main-section {
+    width: calc(100% - (var(--sidebar-width)))
+}
+
+/* Header Main */
+.header-main {
+    width: 100%;
+    height: 70px;
+    background-color: var(--main-gray);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.addressee-info {
+    margin-left: 10px;
+}
+
+#last-online {
+    font-size: .8rem;
+    display: block;
+    color: var(--icons-dark-gray);
+}
+
+.addressee-profile {
+    display: flex;
+    align-items: center;
+}
+
+.main-icons i {
+    color: var(--icons-light-gray);
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+/* Header Main */
+
+/* Chat Section */
+.chat-section {
+    width: 100%;
+    height: calc(100% - 70px - 80px);
+    background-image: url(../img/mine.jpg);
+}
+
+/* /Chat Section */
+
+/* MAIN SECTION */
+
