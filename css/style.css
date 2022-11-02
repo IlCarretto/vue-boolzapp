@@ -239,11 +239,39 @@ li {
 /* Chat Section */
 .chat-section {
     width: 100%;
-    height: calc(100% - 70px - 80px);
+    height: calc(100% - 70px - 70px);
     background-image: url(../img/mine.jpg);
 }
 
 /* /Chat Section */
+
+/* Message-section */
+.message-section {
+    width: 100%;
+    height: 70px;
+    background-color: var(--main-gray);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#message-chat {
+    width: 80%;
+    height: 40px;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.emojis,
+.vocal-msg {
+    font-size: 1.6rem;
+    color: var(--icons-dark-gray);
+    width: 10%;
+    text-align: center;
+}
+
+/* /Message-section */
 
 /* MAIN SECTION */
 
