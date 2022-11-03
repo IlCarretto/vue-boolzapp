@@ -167,24 +167,26 @@ createApp({
                 }
             ],
             activeContact: 0,
-            sentMessages: [
-                {
-                    message: '',
-                    status: 'sent'
-                }
-            ]
+            myMessage: "",
+            theirMessage: "ok"
         }
     },
     methods: {
         changeContact(clickedIndex) {
             this.activeContact = clickedIndex;
         },
-        log() {
-            this.sentMessages = Object.values(this.sentMessages);
-  
-            for (let value of this.sentMessages) {
-                value.push(this.contacts.messages)
+        newMessage() {
+            if (this.myMessage.length > 1) {
+                this.contacts[this.activeContact].messages.push({message:this.myMessage, status: 'sent'})
+                this.myMessage = "";
             }
+            this.automaticMessage();
+        },
+        automaticMessage() {
+            console.log(this.theirMessage);
+            setInterval(function () {
+                this.contacts[this.activeContact].messages.push({message:this.theirMessage, status: 'received'});
+            }, 1000)
         }
     },
     created() {
