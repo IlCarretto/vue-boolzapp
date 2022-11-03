@@ -145,7 +145,6 @@ li {
     height: 30px;
     border: 1px solid lightgrey;
     background-color: white;
-    color: var(--icons-dark-gray);
 }
 
 .search-icon {
@@ -155,6 +154,7 @@ li {
     align-items: center;
     justify-content: center;
     border-radius: 5px 0px 0px 5px;
+    color: var(--icons-dark-gray);
 }
 
 .search-chat {
@@ -179,6 +179,10 @@ li {
     border-bottom: 1px solid lightgrey;
     display: flex;
     cursor: pointer;
+}
+
+.visible {
+    display: block;
 }
 
 .single-contact:hover {
@@ -283,10 +287,6 @@ li {
 
 .received .msg-box {
     background-color: white;
-}
-
-.msg-text {
-    max-width: 90%;
 }
 
 .msg-info {

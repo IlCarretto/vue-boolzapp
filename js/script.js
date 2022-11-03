@@ -1,4 +1,6 @@
 const {createApp} = Vue;
+const DateTime = luxon.DateTime;
+const now = DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
 
 createApp({
     data() {
@@ -168,7 +170,7 @@ createApp({
             ],
             activeContact: 0,
             myMessage: "",
-            theirMessage: "ok"
+            foundContacts: ""
         }
     },
     methods: {
@@ -176,17 +178,32 @@ createApp({
             this.activeContact = clickedIndex;
         },
         newMessage() {
-            if (this.myMessage.length > 1) {
-                this.contacts[this.activeContact].messages.push({message:this.myMessage, status: 'sent'})
+            if (this.myMessage.length >= 1) {
+                this.contacts[this.activeContact].messages.push({
+                    date: now, 
+                    message:this.myMessage,
+                    status: 'sent'})
                 this.myMessage = "";
+                this.automaticMessage();
             }
-            this.automaticMessage();
         },
         automaticMessage() {
-            console.log(this.theirMessage);
-            setInterval(function () {
-                this.contacts[this.activeContact].messages.push({message:this.theirMessage, status: 'received'});
+            let contacts = this.contacts;
+            let activeContact = this.activeContact;
+            setTimeout(function () {
+                contacts[activeContact].messages.push({
+                    date: now,
+                    message: 'ok',
+                    status: 'received'});
             }, 1000)
+        },
+        searchContacts() {
+            for (let i = 0; i < this.contacts.length - 1; i++) {
+                if (!this.contacts[i].name.toLowerCase().includes(this.foundContacts.toLowerCase())) {
+                    this.contacts[i].visible = false;
+                }
+                console.log(this.contacts[i]);
+            }
         }
     },
     created() {
