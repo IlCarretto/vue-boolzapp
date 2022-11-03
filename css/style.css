@@ -26,14 +26,13 @@ body {
 
 .whatsapp-container {
     width: 70%;
+    min-width: 900px;
     height: 95%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    /* DEBUG */
-    background-color: red;
 }
 
 li {
@@ -155,6 +154,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 5px 0px 0px 5px;
 }
 
 .search-chat {
@@ -162,6 +162,7 @@ li {
     display: flex;
     align-items: center;
     padding-left: .5rem;
+    border-radius: 0px 5px 5px 0px;
 }
 /* /Search-Contacts */
 
@@ -177,6 +178,15 @@ li {
     padding: .8rem;
     border-bottom: 1px solid lightgrey;
     display: flex;
+    cursor: pointer;
+}
+
+.single-contact:hover {
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.currentContact {
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .circle-profile {
@@ -192,6 +202,12 @@ li {
 
 .name-and-msg {
     padding: .5rem;
+    flex-grow: 1;
+}
+
+.contact-time {
+    font-size: .8rem;
+    color: grey;
 }
 
 /* /Contact Section */
@@ -240,7 +256,42 @@ li {
 .chat-section {
     width: 100%;
     height: calc(100% - 70px - 70px);
+    overflow-y: scroll;
     background-image: url(../img/mine.jpg);
+    padding: 4rem;
+}
+
+.single-msg {
+    margin-bottom: .8rem;
+}
+
+.sent {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.msg-box {
+    max-width: 300px;
+    min-height: 50px;
+    border-radius: 10px;
+    padding: .5rem;
+}
+
+.sent .msg-box {
+    background-color: var(--addresser-msg-color);
+}
+
+.received .msg-box {
+    background-color: white;
+}
+
+.msg-text {
+    max-width: 90%;
+}
+
+.msg-info {
+    font-size: .8rem;
+    text-align: right;
 }
 
 /* /Chat Section */
@@ -269,8 +320,8 @@ li {
     color: var(--icons-dark-gray);
     width: 10%;
     text-align: center;
+    cursor: pointer;
 }
-
 /* /Message-section */
 
 /* MAIN SECTION */

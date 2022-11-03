@@ -58,7 +58,7 @@
                     </div>
                     <!-- CONTACT SECTION -->
                     <div class="contact-section">
-                        <div v-for="(contact, index) in contacts"       class="single-contact">
+                        <div :class="activeContact === index ? 'currentContact' : ''" @click="changeContact(index)" v-for="(contact, index) in contacts" class="single-contact">
                             <div class="circle-profile">
                                 <img :src=" 'img/avatar' + contact.avatar  + '.jpg' ">
                             </div>
@@ -66,6 +66,9 @@
                                 <h4 class="profile-name">
                                     {{contact.name}}
                                 </h4>
+                            </div>
+                            <div class="contact-time">
+                                <span>12:00</span>
                             </div>
                         </div>
                     </div>
@@ -77,10 +80,10 @@
                     <div class="header-main">
                         <div class="addressee-profile">
                             <div class="circle-profile">
-                                <img src="img/avatar_1.jpg">
+                                <img :src="`img/avatar${contacts[activeContact].avatar}.jpg`">
                             </div>
                             <div class="addressee-info">
-                                <span>Michele</span>
+                                <span>{{contacts[activeContact].name}}</span>
                                 <span id="last-online">Ultimo accesso alle 12:00</span>
                             </div>
                         </div>
@@ -91,13 +94,22 @@
                         </div>
                     </div>
                     <div class="chat-section">
-
+                        <div v-for="(message) in contacts[activeContact].messages" :class=" `${message.status}` " class="single-msg">
+                            <div class="msg-box">
+                                <div class="msg-text">
+                                    {{message.message}}
+                                </div>
+                                <div class="msg-info">
+                                    <span>{{message.date}}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="message-section">
                         <div class="emojis">
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
-                        <input id="message-chat" type="text" placeholder="Scrivi un messaggio">
+                        <input v-model="sentMessages.message" @keyup.enter="log()" id="message-chat" type="text" placeholder="Scrivi un messaggio">
                         <div class="vocal-msg">
                             <i class="fa-solid fa-microphone"></i>
                         </div>

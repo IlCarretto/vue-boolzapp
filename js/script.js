@@ -165,7 +165,28 @@ createApp({
                         }
                     ],
                 }
+            ],
+            activeContact: 0,
+            sentMessages: [
+                {
+                    message: '',
+                    status: 'sent'
+                }
             ]
         }
+    },
+    methods: {
+        changeContact(clickedIndex) {
+            this.activeContact = clickedIndex;
+        },
+        log() {
+            this.sentMessages = Object.values(this.sentMessages);
+  
+            for (let value of this.sentMessages) {
+                value.push(this.contacts.messages)
+            }
+        }
+    },
+    created() {
     }
 }).mount("#app");
