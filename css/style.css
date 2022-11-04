@@ -310,6 +310,7 @@ li {
     position: relative;
     font-size: .8rem;
     color: grey;
+    cursor: pointer;
 }
 
 .dropdown-menu {
@@ -328,14 +329,19 @@ li {
     opacity: 0;
     transition: 150ms ease-in-out;
 }
+/* 
+.dropdown-icon.active + .dropdown-menu {
+    opacity: 1;
+} */
 
-.dropdown-icon:focus + .dropdown-menu {
+.active {
     opacity: 1;
 }
 
 .dropdown-menu li {
     padding: .5rem 0;
     font-size: .8rem;
+    cursor: pointer;
 }
 
 /* /Chat Section */

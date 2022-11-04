@@ -170,7 +170,8 @@ createApp({
             ],
             activeContact: 0,
             myMessage: "",
-            foundContacts: ""
+            foundContacts: "",
+            showDropdownMenu: false
         }
     },
     methods: {
@@ -210,8 +211,15 @@ createApp({
         },
         generateDate() {
             return DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+        },
+        dropdownMenu() {
+            for (let i = 0; i < this.contacts[this.activeContact].messages.length; i++) {
+                console.log(this.contacts[this.activeContact].messages[i])
+            }
         }
     },
     created() {
+        this.foundContacts = this.contacts;
+        console.log(this.foundContacts);
     }
 }).mount("#app");

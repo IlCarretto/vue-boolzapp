@@ -61,7 +61,7 @@
                     </div>
                     <!-- CONTACT SECTION -->
                     <div class="contact-section">
-                        <div v-for="(contact, index) in contacts">
+                        <div v-if='foundContacts.length > 1' v-for="(contact, index) in contacts">
                             <div :class="activeContact === index ? 'currentContact' : ''" @click="changeContact(index)" v-if="contact.visible === true" class="single-contact">
                                 <div class="circle-profile">
                                     <img :src=" 'img/avatar' + contact.avatar  + '.jpg' ">
@@ -76,6 +76,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div v-else='foundContacts = ""'>Non abbiamo trovato contatti!</div>
                     </div>
                 </div>
                 <!-- /SIDEBAR SECTION -->
@@ -103,10 +104,10 @@
                             <div class="msg-box">
                                 <div class="msg-text">
                                     <div class="dropdown">
-                                        <div class="dropdown-icon">
+                                        <div @click="dropdownMenu()" class="dropdown-icon">
                                             <i class="fa-solid fa-chevron-down"></i>
                                         </div>
-                                        <div class="dropdown-menu">
+                                        <div :class="showDropdownMenu === true ? 'active' : ''" class="dropdown-menu">
                                             <ul>
                                                 <li>Message info</li>
                                                 <li>Delete message</li>
