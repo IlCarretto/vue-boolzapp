@@ -51,6 +51,7 @@
                             </li>
                         </ul>
                     </div>
+                    <!-- SEARCH CONTACTS SECTION -->
                     <div class="search-contacts">
                         <div class="search-icon">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -60,7 +61,7 @@
                     </div>
                     <!-- CONTACT SECTION -->
                     <div class="contact-section">
-                        <div :class="activeContact === index ? 'currentContact' : ''" @click="changeContact(index)" v-for="(contact, index) in contacts" class="single-contact">
+                        <div :class="activeContact === index ? 'currentContact' : ''" @click="changeContact(index)" v-for="(contact, index) in contacts" v-if="contacts.visible = true" class="single-contact">
                             <div class="circle-profile">
                                 <img :src=" 'img/avatar' + contact.avatar  + '.jpg' ">
                             </div>

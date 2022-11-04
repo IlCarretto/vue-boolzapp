@@ -290,7 +290,8 @@ li {
 }
 
 .msg-info {
-    font-size: .8rem;
+    padding-top: .5rem;
+    font-size: .7rem;
     text-align: right;
 }
 

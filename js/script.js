@@ -1,6 +1,6 @@
 const {createApp} = Vue;
 const DateTime = luxon.DateTime;
-const now = DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+
 
 createApp({
     data() {
@@ -180,7 +180,7 @@ createApp({
         newMessage() {
             if (this.myMessage.length >= 1) {
                 this.contacts[this.activeContact].messages.push({
-                    date: now, 
+                    date: this.generateDate(), 
                     message:this.myMessage,
                     status: 'sent'})
                 this.myMessage = "";
@@ -190,9 +190,10 @@ createApp({
         automaticMessage() {
             let contacts = this.contacts;
             let activeContact = this.activeContact;
+            let time = DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
             setTimeout(function () {
                 contacts[activeContact].messages.push({
-                    date: now,
+                    date: time,
                     message: 'ok',
                     status: 'received'});
             }, 1000)
@@ -204,6 +205,9 @@ createApp({
                 }
                 console.log(this.contacts[i]);
             }
+        },
+        generateDate() {
+            return DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
         }
     },
     created() {
