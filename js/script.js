@@ -199,9 +199,11 @@ createApp({
             }, 1000)
         },
         searchContacts() {
-            for (let i = 0; i < this.contacts.length - 1; i++) {
+            for (let i = 0; i < this.contacts.length; i++) {
                 if (!this.contacts[i].name.toLowerCase().includes(this.foundContacts.toLowerCase())) {
                     this.contacts[i].visible = false;
+                } else if (this.foundContacts === "") {
+                    this.contacts[i].visible = true;
                 }
                 console.log(this.contacts[i]);
             }

@@ -56,22 +56,24 @@
                         <div class="search-icon">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-                        <input v-model="foundContacts" @keyup.enter="searchContacts()" placeholder="Cerca o inizia una nuova chat" type=text class="search-chat">
+                        <input v-model="foundContacts" @keyup="searchContacts()" placeholder="Cerca o inizia una nuova chat" type=text class="search-chat">
                         </input>
                     </div>
                     <!-- CONTACT SECTION -->
                     <div class="contact-section">
-                        <div :class="activeContact === index ? 'currentContact' : ''" @click="changeContact(index)" v-for="(contact, index) in contacts" v-if="contacts.visible = true" class="single-contact">
-                            <div class="circle-profile">
-                                <img :src=" 'img/avatar' + contact.avatar  + '.jpg' ">
-                            </div>
-                            <div class="name-and-msg">
-                                <h4 class="profile-name">
-                                    {{contact.name}}
-                                </h4>
-                            </div>
-                            <div class="contact-time">
-                                <span>12:00</span>
+                        <div v-for="(contact, index) in contacts">
+                            <div :class="activeContact === index ? 'currentContact' : ''" @click="changeContact(index)" v-if="contact.visible === true" class="single-contact">
+                                <div class="circle-profile">
+                                    <img :src=" 'img/avatar' + contact.avatar  + '.jpg' ">
+                                </div>
+                                <div class="name-and-msg">
+                                    <h4 class="profile-name">
+                                        {{contact.name}}
+                                    </h4>
+                                </div>
+                                <div class="contact-time">
+                                    <span>12:00</span>
+                                </div>
                             </div>
                         </div>
                     </div>
