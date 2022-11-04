@@ -279,6 +279,11 @@ li {
     min-height: 50px;
     border-radius: 10px;
     padding: .5rem;
+    position: relative;
+}
+
+.msg-text {
+    max-width: 99%;
 }
 
 .sent .msg-box {
@@ -293,6 +298,44 @@ li {
     padding-top: .5rem;
     font-size: .7rem;
     text-align: right;
+}
+
+.dropdown {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.dropdown-icon {
+    position: relative;
+    font-size: .8rem;
+    color: grey;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    box-shadow: 2px 4px 5px 2px rgba(0, 0, 0, .1);
+    width: 120px;
+    height: 70px;
+    background-color: var(--main-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .25rem;
+    z-index: 99;
+    opacity: 0;
+    transition: 150ms ease-in-out;
+}
+
+.dropdown-icon:focus + .dropdown-menu {
+    opacity: 1;
+}
+
+.dropdown-menu li {
+    padding: .5rem 0;
+    font-size: .8rem;
 }
 
 /* /Chat Section */

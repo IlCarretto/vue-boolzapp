@@ -102,6 +102,17 @@
                         <div v-for="(message) in contacts[activeContact].messages" :class=" `${message.status}` " class="single-msg">
                             <div class="msg-box">
                                 <div class="msg-text">
+                                    <div class="dropdown">
+                                        <div class="dropdown-icon">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li>Message info</li>
+                                                <li>Delete message</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                     <span>
                                         {{message.message}}
                                     </span>
