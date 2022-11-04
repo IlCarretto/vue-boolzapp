@@ -171,6 +171,7 @@ createApp({
             activeContact: 0,
             myMessage: "",
             foundContacts: "",
+            actuallyFoundContacts: [],
             showDropdownMenu: false
         }
     },
@@ -203,8 +204,10 @@ createApp({
             for (let i = 0; i < this.contacts.length; i++) {
                 if (!this.contacts[i].name.toLowerCase().includes(this.foundContacts.toLowerCase())) {
                     this.contacts[i].visible = false;
+                    this.notShowing = true;
                 } else if (this.foundContacts === "") {
                     this.contacts[i].visible = true;
+                    this.actuallyFoundContacts.push(this.contacts[i]);
                 }
                 console.log(this.contacts[i]);
             }
@@ -219,7 +222,7 @@ createApp({
         }
     },
     created() {
-        this.foundContacts = this.contacts;
-        console.log(this.foundContacts);
+        // this.foundContacts = this.contacts;
+        // console.log(this.foundContacts);
     }
 }).mount("#app");

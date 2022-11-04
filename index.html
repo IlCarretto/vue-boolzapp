@@ -61,7 +61,7 @@
                     </div>
                     <!-- CONTACT SECTION -->
                     <div class="contact-section">
-                        <div v-if='foundContacts.length > 1' v-for="(contact, index) in contacts">
+                        <div  v-for="(contact, index) in contacts">
                             <div :class="activeContact === index ? 'currentContact' : ''" @click="changeContact(index)" v-if="contact.visible === true" class="single-contact">
                                 <div class="circle-profile">
                                     <img :src=" 'img/avatar' + contact.avatar  + '.jpg' ">
@@ -76,7 +76,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-else='foundContacts = ""'>Non abbiamo trovato contatti!</div>
+                        <div class="contactsNotFound" v-if='actuallyFoundContacts.length === 0'><h3>Non abbiamo trovato contatti!</h3>
+                        </div>
                     </div>
                 </div>
                 <!-- /SIDEBAR SECTION -->
